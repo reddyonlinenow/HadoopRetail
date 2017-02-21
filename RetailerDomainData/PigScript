@@ -1,0 +1,30 @@
+A = LOAD '/RetailerOut/AvailableProducts-m-00000'  as (NAME:chararray,RTID:float,ProductName:chararray,TYPEOFCRAWLING:chararray,PROD_URL:chararray,TITLE:chararray,SALEPRICE:float,REGPRICE:float,REBATEPERCEN:float,STOCKINFO:chararray); 
+disAP = DISTINCT A;
+orAP = ORDER disAP by RTID;
+STORE orAP into '/user/root/AP' using PigStorage(',');
+
+A = LOAD '/RetailerOut/HighBuzzProducts-m-00000'  as (NAME:chararray,RTID:float,ProductName:chararray,TYPEOFCRAWLING:chararray,PROD_URL:chararray,TITLE:chararray,SALEPRICE:float,REGPRICE:float,REBATEPERCEN:float,STOCKINFO:chararray); 
+disHBP = DISTINCT A;
+orHBP = ORDER disHBP by RTID;
+STORE orHBP into '/user/root/HBP' using PigStorage(',');
+
+A = LOAD '/RetailerOut/NormalProducts-m-00000'  as (NAME:chararray,RTID:float,ProductName:chararray,TYPEOFCRAWLING:chararray,PROD_URL:chararray,TITLE:chararray,SALEPRICE:float,REGPRICE:float,REBATEPERCEN:float,STOCKINFO:chararray); 
+disNP = DISTINCT A;
+orNP = ORDER disNP by RTID;
+STORE orNP into '/user/root/NP' using PigStorage(',');
+
+A = LOAD '/RetailerOut/OnDemandCrawlProducts-m-00000'  as (NAME:chararray,RTID:float,ProductName:chararray,TYPEOFCRAWLING:chararray,PROD_URL:chararray,TITLE:chararray,SALEPRICE:float,REGPRICE:float,REBATEPERCEN:float,STOCKINFO:chararray); 
+disODCP = DISTINCT A;
+orODCP = ORDER disODCP by RTID;
+STORE orODCP into '/user/root/ODCP' using PigStorage(',');
+
+A = LOAD '/RetailerOut/OtherProducts-m-00000'  as (NAME:chararray,RTID:float,ProductName:chararray,TYPEOFCRAWLING:chararray,PROD_URL:chararray,TITLE:chararray,SALEPRICE:float,REGPRICE:float,REBATEPERCEN:float,STOCKINFO:chararray); 
+disOP = DISTINCT A;
+orOP = ORDER disOP by RTID;
+STORE orOP into '/user/root/OP' using PigStorage(',');
+
+A = LOAD '/RetailerOut/RareProducts-m-00000'  as (NAME:chararray,RTID:float,ProductName:chararray,TYPEOFCRAWLING:chararray,PROD_URL:chararray,TITLE:chararray,SALEPRICE:float,REGPRICE:float,REBATEPERCEN:float,STOCKINFO:chararray); 
+disRP = DISTINCT A;
+orRP = ORDER disRP by RTID;
+STORE orRP into '/user/root/RP' using PigStorage(',');
+
